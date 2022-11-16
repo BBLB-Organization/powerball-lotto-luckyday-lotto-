@@ -1,3 +1,13 @@
+.container-1 {
+    background: #272E48;
+    /* text color -> #bcd0f7 */
+    border: 30px;
+    padding: 1em;
+    border-radius: 2%;
+    margin-left: 22em;
+    margin-right: 22em;
+}
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -7,10 +17,10 @@ table {
     background: #ffffff;
 }
 
-h1{
+h1 {
     text-align: center;
-    color: #ffffff;
-    font-family:'Times New Roman', Times, serif;
+    color: #bcd0f7;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 th {
