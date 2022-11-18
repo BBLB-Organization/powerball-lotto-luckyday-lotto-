@@ -1,46 +1,57 @@
+.container-1 {
+    background: #272E48;
+    /* text color -> #bcd0f7 */
+    border: 30px;
+    padding: 1em;
+    border-radius: 2%;
+    margin-left: 22em;
+    margin-right: 22em;
+}
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-  }
-  
-  /* td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  } */
+    background: #ffffff;
+}
 
-  th{
+h1 {
+    text-align: center;
+    color: #bcd0f7;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+th {
     background: #2f3e4a;
     text-align: center;
-    color:#ffffff;
-    height:70px;
-  }
+    color: #ffffff;
+    height: 70px;
+}
 
-  td{
+td {
     text-align: center;
     padding: 10px;
-  }
+}
 
-  td:nth-child(1) {  
+td:nth-child(1) {
     text-align: left;
-  }
+}
 
-  td:nth-child(even){
-    background: #dddee0;
-  }
+tr:nth-child(even) {
+    background: #e8f4f8;
+}
 
-  .text-small{
+.text-small {
     font-size: 12px;
-  }
+}
 
-  .text{
+.text {
     font-size: 22px;
-  }
+}
 
-  .price-matchs {
+.price-matchs {
     font-size: 0;
     width: 230px;
     margin: 0 auto;
