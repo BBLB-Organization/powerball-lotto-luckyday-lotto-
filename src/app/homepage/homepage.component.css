@@ -39,8 +39,8 @@ td:nth-child(1) {
     text-align: left;
 }
 
-td:nth-child(even) {
-    background: #dddee0;
+tr:nth-child(even) {
+    background: #e8f4f8;
 }
 
 .text-small {
