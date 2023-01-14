@@ -1,7 +1,51 @@
-.navbar{
-    padding: 2em;
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-a{
-    color: #ffffff;
+#left-nav,
+#right-nav {
+    display: flex;
+    align-items: center;
+}
+
+#gamesLink {
+    margin-right: 5em;
+}
+
+#resultsLink {
+    margin-right: 5em;
+}
+
+#predictionAiLink {
+    margin-left: 5em;
+}
+
+#loginLink {
+    margin-left: 5em;
+}
+
+img {
+    margin: 0 10px;
+}
+
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-family: 'EB Garamond', serif;
+    font-weight: 800;
+    /* slightly bolder */
+}
+
+a:hover {
+    color: gray;
 }
