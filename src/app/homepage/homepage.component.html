@@ -1,60 +1,30 @@
-<div class="container-1">
-    <h1>Illinois Lucky-Lotto Odds Calculator</h1>
-    <table>
-        <tr>
-            <th>Match</th>
-            <th>Prize</th>
-            <th>Odds</th>
-        </tr>
-        <tr>
-            <td>
-                <div class="price-matchs">
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                </div>
-            </td>
-            <td>Jackpot</td>
-            <td>1:1,221,759</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="price-matchs">
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                </div>
-            </td>
-            <td>$200</td>
-            <td>1:6,109</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="price-matchs">
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                </div>
-            </td>
-            <td>$15</td>
-            <td>1:157</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="price-matchs">
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                </div>
-            </td>
-            <td>$1</td>
-            <td>1:12</td>
-        </tr>
-    </table>
+<div class="container">
+  <h1 class="text-center">Welcome to the Illinois Lucky Day Lotto Tool</h1>
+  <img class="mx-auto d-block" src="../../assets/lucky-day-lotto-logo.png" alt="lucky-day-lotto-logo.png">
+  <div class="row">
+    <div class="col-md-6 offset-md-7">
+      <button data-test-id="quickPickTop" aria-label="QUICK PICK"
+        class="do exc-btn exc-btn-stroke quick-pick exc-btn-stroke--luckydaylotto "><span>QUICK PICK</span></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="number-grid">
+        <div class="number-grid-item" *ngFor="let number of numbers; let i = index"
+          [class.picked]="pickedNumbers.indexOf(number) > -1" (click)="pickNumber(i)">
+          {{ number }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <ul id="pickedNumbers" class="list-group">
+        <li *ngFor="let number of pickedNumbers" class="list-group-item">{{ number }}</li>
+      </ul>
+    </div>
+  </div>
 </div>
-
-<div>
-    <p>Gambling addication hotline: 1-800-522-4700</p>
-</div>
+<br>
+<app-odds-table></app-odds-table>
+<br>
