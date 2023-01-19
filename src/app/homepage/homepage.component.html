@@ -14,19 +14,44 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <div class="number-grid">
-        <div id="bubble" class="number-grid-item" *ngFor="let number of numbers; let i = index"
-          [class.picked]="pickedNumbers.indexOf(number) > -1" (click)="pickNumber(i)">
-          {{ number }}
+        <div *ngIf="!finalComparison">
+          <div id="bubble" class="number-grid-item" *ngFor="let number of numbers; let i = index"
+            [class.picked]="pickedNumbers.indexOf(number) > -1" (click)="pickNumber(i)">
+            {{ number }}
+          </div>
+        </div>
+        <div *ngIf="finalComparison">
+          <div id="bubble" class="number-grid-item" *ngFor="let number of numbers; let i = index"
+            [class.picked]="pickedNumbers.indexOf(number) > -1">
+            {{ number }}
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="row pt-5">
     <div class="col-md-6 offset-md-3">
-      <div class="number-grid-item" *ngFor="let number of pickedNumbers">
+      <h2 *ngIf="pickedNumbers.length >= 1">Your Selected Numbers</h2>
+      <div class="number-grid-item" [class.pickedWinner]="randomLotteryNumbersSelected.indexOf(number) > -1"
+        *ngFor="let number of pickedNumbers">
         {{number}}
       </div>
-      <button class="btn btn-lg btn-outline-primary col-md-12 text-right" (click)="clearNumbers()">Clear</button>
+      <div *ngIf="finalComparison">
+        <h2>Winning Numbers</h2>
+        <div class="number-grid-item" *ngFor="let number of randomLotteryNumbersSelected">
+          {{number}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-md-6 offset-md-3">
+      <button class="btn btn-lg btn-outline-primary col-md-5 playNumberButton" (click)="playNumbers()">Play
+        Numbers</button>
+      <button *ngIf="!finalComparison" class="btn btn-lg btn-outline-primary col-md-5 float-right clearButton"
+        (click)="clearNumbers()">Clear</button>
+      <button *ngIf="finalComparison" class="btn btn-lg btn-outline-primary col-md-5 float-right clearButton"
+        (click)="clearNumbers()">Play Again</button>
     </div>
   </div>
 </div>

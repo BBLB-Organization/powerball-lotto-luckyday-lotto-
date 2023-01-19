@@ -1,3 +1,7 @@
+h1{
+    font-style: italic;
+}
+
 .number-grid {
     padding-top: 1em;
     display: flex;
@@ -23,6 +27,10 @@
 
 .number-grid-item.picked {
     background-color: #f44336;
+}
+
+.number-grid-item.pickedWinner {
+    background-color: 	#66FF00;
 }
 
 .quick-pick {
@@ -53,4 +61,12 @@
 .quick-pick:hover {
     background-color: rgba(0, 130, 153, 0.1);
     color: #008299;
+}
+
+.playButton{
+    float: left;
+}
+
+.clearButton{
+    float: right;
 }

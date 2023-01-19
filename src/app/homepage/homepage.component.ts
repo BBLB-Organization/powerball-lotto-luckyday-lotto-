@@ -12,7 +12,10 @@ export class HomepageComponent implements OnInit {
   numberRows = Array.from({ length: 7 }, (_, i) => this.numbers.slice(i * 7, (i * 7) + 7));
   pickedNumbers: number[] = [];
   randomLotteryNumbersSelected: number[] = [];
+
+  lotteryHomepageWindow : any;
   randomLotteryNumberFinished: boolean = false;
+  finalComparison : boolean = false;
 
   pickNumber(number: number) {
     number = number + 1;  //Fixes the numbers since it's off by one
@@ -28,8 +31,20 @@ export class HomepageComponent implements OnInit {
     this.pickedNumbers = this.pickedNumbers.sort((n1,n2) => n1 - n2);
   }
 
+  playNumbers(){
+    if(this.pickedNumbers.length != 5){
+      alert("Please pick five numbers to play");
+    }
+    else{
+      this.finalComparison = true;
+    }
+  }
+
   clearNumbers() {
     this.pickedNumbers = [];
+    if(this.finalComparison){
+      this.lotteryHomepageWindow.location.reload();
+    }
   }
 
   getRandom() {
@@ -52,12 +67,15 @@ export class HomepageComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  constructor() {
+    this.lotteryHomepageWindow = window;
+   }
 
   ngOnInit(): void {
     do {
       this.getRandom();
     } while (!this.randomLotteryNumberFinished);
+    this.randomLotteryNumbersSelected = this.randomLotteryNumbersSelected.sort((n1,n2) => n1 - n2);
     console.log(this.randomLotteryNumbersSelected);
   }
 
