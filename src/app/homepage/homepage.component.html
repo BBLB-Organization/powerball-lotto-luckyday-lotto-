@@ -23,9 +23,9 @@
   </div>
   <div class="row pt-5">
     <div class="col-md-6 offset-md-3">
-      <ul id="pickedNumbers" class="list-group">
-        <li *ngFor="let number of pickedNumbers" class="list-group-item">{{ number }}</li>
-      </ul>
+      <div class="number-grid-item" *ngFor="let number of pickedNumbers">
+        {{number}}
+      </div>
       <button class="btn btn-lg btn-outline-primary col-md-12 text-right" (click)="clearNumbers()">Clear</button>
     </div>
   </div>
