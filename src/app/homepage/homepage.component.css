@@ -1,7 +1,7 @@
-.number-grid {
-    /*display: flex;
-    flex-wrap: wrap;*/
-}
+/*.number-grid {
+    display: flex;
+    flex-wrap: wrap;
+}*/
 
 .number-grid-item {
     width: 2.7em;
@@ -14,7 +14,6 @@
     font-size: 1.2em;
     font-weight: 700;
     background-color: #f0f0f0;
-    ;
     color: #111;
     cursor: pointer;
     display: inline-block;
@@ -49,6 +48,6 @@
 }
 
 .quick-pick:hover {
-    background-color: rgba(0,130,153, 0.1);
+    background-color: rgba(0, 130, 153, 0.1);
     color: #008299;
 }
