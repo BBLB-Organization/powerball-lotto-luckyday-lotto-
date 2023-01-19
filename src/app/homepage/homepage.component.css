@@ -1,7 +1,9 @@
-/*.number-grid {
+.number-grid {
+    padding-top: 1em;
     display: flex;
     flex-wrap: wrap;
-}*/
+    position: relative;
+}
 
 .number-grid-item {
     width: 2.7em;
@@ -45,6 +47,7 @@
 
 .exc-btn {
     border-radius: 3em;
+    float: right;
 }
 
 .quick-pick:hover {

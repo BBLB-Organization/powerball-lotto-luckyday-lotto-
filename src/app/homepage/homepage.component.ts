@@ -25,7 +25,7 @@ export class HomepageComponent implements OnInit {
     }
   }
 
-  pickNumbers() {
+  clearNumbers() {
     this.pickedNumbers = [];
   }
 
