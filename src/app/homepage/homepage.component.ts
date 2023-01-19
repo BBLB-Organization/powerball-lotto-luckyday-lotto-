@@ -43,6 +43,7 @@ export class HomepageComponent implements OnInit {
   clearNumbers() {
     this.pickedNumbers = [];
     if(this.finalComparison){
+      this.randomLotteryNumbersSelected = [];
       this.lotteryHomepageWindow.location.reload();
     }
   }

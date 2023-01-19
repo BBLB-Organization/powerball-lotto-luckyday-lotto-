@@ -32,9 +32,16 @@
   <div class="row pt-5">
     <div class="col-md-6 offset-md-3">
       <h2 *ngIf="pickedNumbers.length >= 1">Your Selected Numbers</h2>
-      <div class="number-grid-item" [class.pickedWinner]="randomLotteryNumbersSelected.indexOf(number) > -1"
-        *ngFor="let number of pickedNumbers">
-        {{number}}
+      <div *ngIf="!finalComparison">
+        <div class="number-grid-item" *ngFor="let number of pickedNumbers">
+          {{number}}
+        </div>
+      </div>
+      <div *ngIf="finalComparison">
+        <div class="number-grid-item" [class.pickedWinner]="randomLotteryNumbersSelected.indexOf(number) > -1"
+          *ngFor="let number of pickedNumbers">
+          {{number}}
+        </div>
       </div>
       <div *ngIf="finalComparison">
         <h2>Winning Numbers</h2>
