@@ -1,0 +1,93 @@
+.container-1 {
+    border: 30px;
+    padding: 1em;
+    border-radius: 2%;
+    margin-left: 22em;
+    margin-right: 22em;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ffffff;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+th {
+    background: #2f3e4a;
+    text-align: center;
+    color: #ffffff;
+    height: 70px;
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+td:nth-child(1) {
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background: #e8f4f8;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text {
+    font-size: 22px;
+}
+
+.price-matchs {
+    font-size: 0;
+    width: 230px;
+    margin: 0 auto;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.price-ball {
+    display: inline-block;
+    height: 29px;
+    vertical-align: top;
+    width: 29px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 3px;
+}
+
+.price-ball.gray {
+    background-color: #dddee0;
+}
+
+.price-plus {
+    width: 12px;
+    display: inline-block;
+    color: black;
+    font-size: 16px;
+    line-height: 29px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.price-ball.red.star {
+    background-image: url(https://s3.amazonaws.com/cdn.powerball.com/drupal/themes/rapid/images/home/ball-powerball-red.svg);
+}
+
+.price-ball.red {
+    background-color: #d1372d;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

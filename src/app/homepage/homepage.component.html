@@ -1,60 +1,67 @@
-<div class="container-1">
-    <h1>Illinois Lucky-Lotto Odds Calculator</h1>
-    <table>
-        <tr>
-            <th>Match</th>
-            <th>Prize</th>
-            <th>Odds</th>
-        </tr>
-        <tr>
-            <td>
-                <div class="price-matchs">
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                </div>
-            </td>
-            <td>Jackpot</td>
-            <td>1:1,221,759</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="price-matchs">
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                </div>
-            </td>
-            <td>$200</td>
-            <td>1:6,109</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="price-matchs">
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                </div>
-            </td>
-            <td>$15</td>
-            <td>1:157</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="price-matchs">
-                    <span class="price-ball gray"></span>
-                    <span class="price-ball gray"></span>
-                </div>
-            </td>
-            <td>$1</td>
-            <td>1:12</td>
-        </tr>
-    </table>
+<div class="container">
+  <h1 class="text-center">Welcome to the Illinois Lucky Day Lotto Tool</h1>
+  <img class="mx-auto d-block" src="../../assets/lucky-day-lotto-logo.png" alt="lucky-day-lotto-logo.png">
+  <div class="row">
+    <div class="col-md-6 offset-md-7">
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-md-6 offset-md-3">
+      <button data-test-id="quickPickTop" aria-label="QUICK PICK"
+        class="do exc-btn exc-btn-stroke quick-pick exc-btn-stroke--luckydaylotto">QUICK PICK</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="number-grid">
+        <div *ngIf="!finalComparison">
+          <div id="bubble" class="number-grid-item" *ngFor="let number of numbers; let i = index"
+            [class.picked]="pickedNumbers.indexOf(number) > -1" (click)="pickNumber(i)">
+            {{ number }}
+          </div>
+        </div>
+        <div *ngIf="finalComparison">
+          <div id="bubble" class="number-grid-item" *ngFor="let number of numbers; let i = index"
+            [class.picked]="pickedNumbers.indexOf(number) > -1">
+            {{ number }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-5">
+    <div class="col-md-6 offset-md-3">
+      <h2 *ngIf="pickedNumbers.length >= 1">Your Selected Numbers</h2>
+      <div *ngIf="!finalComparison">
+        <div class="number-grid-item" *ngFor="let number of pickedNumbers">
+          {{number}}
+        </div>
+      </div>
+      <div *ngIf="finalComparison">
+        <div class="number-grid-item" [class.pickedWinner]="randomLotteryNumbersSelected.indexOf(number) > -1"
+          *ngFor="let number of pickedNumbers">
+          {{number}}
+        </div>
+      </div>
+      <div *ngIf="finalComparison">
+        <h2>Winning Numbers</h2>
+        <div class="number-grid-item" *ngFor="let number of randomLotteryNumbersSelected">
+          {{number}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-md-6 offset-md-3">
+      <button class="btn btn-lg btn-outline-primary col-md-5 playNumberButton" (click)="playNumbers()">Play
+        Numbers</button>
+      <button *ngIf="!finalComparison" class="btn btn-lg btn-outline-primary col-md-5 float-right clearButton"
+        (click)="clearNumbers()">Clear</button>
+      <button *ngIf="finalComparison" class="btn btn-lg btn-outline-primary col-md-5 float-right clearButton"
+        (click)="clearNumbers()">Play Again</button>
+    </div>
+  </div>
 </div>
-
-<div>
-    <p>Gambling addication hotline: 1-800-522-4700</p>
-</div>
+<br>
+<app-odds-table></app-odds-table>
+<br>

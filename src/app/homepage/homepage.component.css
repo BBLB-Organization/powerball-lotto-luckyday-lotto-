@@ -1,95 +1,72 @@
-.container-1 {
-    background: #272E48;
-    /* text color -> #bcd0f7 */
-    border: 30px;
-    padding: 1em;
-    border-radius: 2%;
-    margin-left: 22em;
-    margin-right: 22em;
+h1{
+    font-style: italic;
 }
 
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    background: #ffffff;
+.number-grid {
+    padding-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
 }
 
-h1 {
-    text-align: center;
-    color: #bcd0f7;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-th {
-    background: #2f3e4a;
-    text-align: center;
-    color: #ffffff;
-    height: 70px;
-}
-
-td {
-    text-align: center;
-    padding: 10px;
-}
-
-td:nth-child(1) {
-    text-align: left;
-}
-
-tr:nth-child(even) {
-    background: #e8f4f8;
-}
-
-.text-small {
-    font-size: 12px;
-}
-
-.text {
-    font-size: 22px;
-}
-
-.price-matchs {
-    font-size: 0;
-    width: 230px;
-    margin: 0 auto;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.price-ball {
-    display: inline-block;
-    height: 29px;
-    vertical-align: top;
-    width: 29px;
+.number-grid-item {
+    width: 2.7em;
+    height: 2.7em;
+    z-index: 1;
     border-radius: 50%;
-    overflow: hidden;
-    margin: 0 3px;
-}
-
-.price-ball.gray {
-    background-color: #dddee0;
-}
-
-.price-plus {
-    width: 12px;
+    text-align: center;
+    line-height: 2.7em;
+    margin: 0.3em;
+    font-size: 1.2em;
+    font-weight: 700;
+    background-color: #f0f0f0;
+    color: #111;
+    cursor: pointer;
     display: inline-block;
-    color: black;
-    font-size: 16px;
-    line-height: 29px;
-    margin-left: 3px;
-    margin-right: 3px;
 }
 
-.price-ball.red.star {
-    background-image: url(https://s3.amazonaws.com/cdn.powerball.com/drupal/themes/rapid/images/home/ball-powerball-red.svg);
+.number-grid-item.picked {
+    background-color: #f44336;
 }
 
-.price-ball.red {
-    background-color: #d1372d;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.number-grid-item.pickedWinner {
+    background-color: 	#66FF00;
+}
+
+.quick-pick {
+    align-items: center;
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+    height: 48px;
+    justify-content: center;
+    width: 140px;
+}
+
+.exc-btn-stroke--luckydaylotto {
+    border-color: #008299;
+    color: #008299;
+}
+
+.exc-btn-stroke {
+    background-color: transparent;
+    border: 2px solid;
+}
+
+.exc-btn {
+    border-radius: 3em;
+    float: right;
+}
+
+.quick-pick:hover {
+    background-color: rgba(0, 130, 153, 0.1);
+    color: #008299;
+}
+
+.playButton{
+    float: left;
+}
+
+.clearButton{
+    float: right;
 }
