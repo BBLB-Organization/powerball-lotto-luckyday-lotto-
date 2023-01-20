@@ -56,7 +56,6 @@ export class HomepageComponent implements OnInit {
     // random between 0 and the difference
     const random = Math.round(difference * floatRandom)
     const randomWithinRange = random + minNumber;
-    console.log(randomWithinRange);
     if (this.randomLotteryNumbersSelected.includes(randomWithinRange)) {
       return;
     }
@@ -77,7 +76,6 @@ export class HomepageComponent implements OnInit {
       this.getRandom();
     } while (!this.randomLotteryNumberFinished);
     this.randomLotteryNumbersSelected = this.randomLotteryNumbersSelected.sort((n1,n2) => n1 - n2);
-    console.log(this.randomLotteryNumbersSelected);
   }
 
 }

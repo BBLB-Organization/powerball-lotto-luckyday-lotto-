@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { OddsTableComponent } from './odds-table/odds-table.component';
+import { OddsTableComponent } from './components/odds-table/odds-table.component';
 
 @NgModule({
   declarations: [
