@@ -12,10 +12,12 @@ export class HomepageComponent implements OnInit {
   numberRows = Array.from({ length: 7 }, (_, i) => this.numbers.slice(i * 7, (i * 7) + 7));
   pickedNumbers: number[] = [];
   randomLotteryNumbersSelected: number[] = [];
+  quickPickList: number[] = [];
 
-  lotteryHomepageWindow : any;
+  lotteryHomepageWindow: any;
   randomLotteryNumberFinished: boolean = false;
-  finalComparison : boolean = false;
+  quickPickSelectionFinished: boolean = false;
+  finalComparison: boolean = false;
 
   pickNumber(number: number) {
     number = number + 1;  //Fixes the numbers since it's off by one
@@ -28,35 +30,28 @@ export class HomepageComponent implements OnInit {
     else if (this.pickedNumbers.includes(number)) {
       this.pickedNumbers = this.pickedNumbers.filter(a => a != number);
     }
-    this.pickedNumbers = this.pickedNumbers.sort((n1,n2) => n1 - n2);
+    this.pickedNumbers = this.pickedNumbers.sort((n1, n2) => n1 - n2);
   }
 
-  playNumbers(){
-    if(this.pickedNumbers.length != 5){
+  playNumbers() {
+    if (this.pickedNumbers.length != 5) {
       alert("Please pick five numbers to play");
     }
-    else{
+    else {
       this.finalComparison = true;
     }
   }
 
   clearNumbers() {
     this.pickedNumbers = [];
-    if(this.finalComparison){
+    if (this.finalComparison) {
       this.randomLotteryNumbersSelected = [];
       this.lotteryHomepageWindow.location.reload();
     }
   }
 
   getRandom() {
-    const minNumber: number = 1;
-    const maxNumber: number = 45;
-    const floatRandom = Math.random()
-    const difference = maxNumber - minNumber;
-    // random between 0 and the difference
-    const random = Math.round(difference * floatRandom)
-    const randomWithinRange = random + minNumber;
-    console.log(randomWithinRange);
+    let randomWithinRange = this.randomNumberGenerator();
     if (this.randomLotteryNumbersSelected.includes(randomWithinRange)) {
       return;
     }
@@ -68,16 +63,49 @@ export class HomepageComponent implements OnInit {
     }
   }
 
+  quickPick() {
+    this.quickPickList = [];
+    if (this.quickPickSelectionFinished) {
+      this.quickPickSelectionFinished = false;
+    }
+    do {
+      let randomWithinRange = this.randomNumberGenerator();
+      if (this.quickPickList.includes(randomWithinRange)) {
+        continue;
+      }
+      else {
+        this.quickPickList.push(randomWithinRange);
+        if (this.quickPickList.length == 5) {
+          this.quickPickSelectionFinished = true;
+        }
+      }
+    } while (!this.quickPickSelectionFinished);
+    this.quickPickList = this.quickPickList.sort((n1, n2) => n1 - n2);
+    this.pickedNumbers = this.quickPickList;
+  }
+
+  randomNumberGenerator(): number {
+    const minNumber: number = 1;
+    const maxNumber: number = 45;
+    const floatRandom = Math.random()
+    const difference = maxNumber - minNumber;
+    // random between 0 and the difference
+    const random = Math.round(difference * floatRandom);
+    const randomWithinRange = random + minNumber;
+    return randomWithinRange;
+  }
+
   constructor() {
     this.lotteryHomepageWindow = window;
-   }
+  }
 
   ngOnInit(): void {
     do {
       this.getRandom();
     } while (!this.randomLotteryNumberFinished);
-    this.randomLotteryNumbersSelected = this.randomLotteryNumbersSelected.sort((n1,n2) => n1 - n2);
+    this.randomLotteryNumbersSelected = this.randomLotteryNumbersSelected.sort((n1, n2) => n1 - n2);
     console.log(this.randomLotteryNumbersSelected);
   }
+
 
 }
