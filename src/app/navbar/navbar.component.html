@@ -1,13 +1,19 @@
-<header>
-    <nav>
-      <div id="left-nav">
-        <a href="#home" id="gamesLink">Games</a>
-        <a href="#about" id="resultsLink">Results</a>
-      </div>
-      <img src="assets/LOTTO.png" alt="lotto.png">
-      <div id="right-nav">
-        <a href="#services" id="predictionAiLink">Prediction AI</a>
-        <a href="#contact" id="loginLink">Log In</a>
-      </div>
-    </nav>
-</header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+  <div class="container-fluid d-flex justify-content-between">
+    <img class="navbar-brand mx-auto" routerLink="/" src="assets/LOTTO.png" alt="lotto.png" style="cursor:pointer">
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="'/homepage'" (click)="isMenuCollapsed = true">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

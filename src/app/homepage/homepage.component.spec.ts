@@ -90,4 +90,15 @@ describe('HomepageComponent', () => {
 
   //clearNumbers() method test region END
 
+  it('should random select a set of numbers when the user clicks the quick pick button',()=>{
+    component.quickPick();
+    expect(component.pickedNumbers.length).toEqual(5);
+  });
+
+  it('should reapply the quick pick button is the user wants to play again the quick pick',()=>{
+    component.quickPickSelectionFinished = true;
+    component.quickPick();
+    expect(component.quickPickSelectionFinished).toBeTrue();
+  })
+
 });

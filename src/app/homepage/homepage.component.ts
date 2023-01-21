@@ -104,7 +104,6 @@ export class HomepageComponent implements OnInit {
       this.getRandom();
     } while (!this.randomLotteryNumberFinished);
     this.randomLotteryNumbersSelected = this.randomLotteryNumbersSelected.sort((n1, n2) => n1 - n2);
-    console.log(this.randomLotteryNumbersSelected);
   }
 
 
