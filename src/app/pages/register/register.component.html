@@ -4,8 +4,20 @@
             <img src="assets/LOTTO.png" alt="lotto-power.png" class="mx-auto d-block text-center">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="card-title text-center mb-4">Sign In</h3>
-                    <form (ngSubmit)="onSubmit()" [formGroup]="signInForm">
+                    <h3 class="card-title text-center mb-4">Register</h3>
+                    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+                        <div>
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" formControlName="firstName" id="firstName">
+                        </div>
+                        <div>
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" formControlName="lastName" id="lastName">
+                        </div>
+                        <div>
+                            <label for="userName">Username</label>
+                            <input type="text" class="form-control" formControlName="userName" id="userName">
+                        </div>
                         <div>
                             <label for="email">Email address</label>
                             <input type="email" class="form-control" formControlName="email" id="email"
@@ -21,7 +33,7 @@
                             <button type="submit"
                                 class="btn btn-lg btn-outline-primary col-md-5 float-right signInButton">Sign
                                 In</button>
-                            <button (click)="goToRegisterPage()"
+                            <button
                                 class="btn btn-lg btn-outline-primary col-md-5 float-right registerButton">Register</button>
                         </div>
                     </form>
