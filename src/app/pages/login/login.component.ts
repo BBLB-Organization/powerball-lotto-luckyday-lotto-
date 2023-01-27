@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Users } from 'src/app/models/Users/users.model';
 
 @Component({
@@ -28,11 +29,14 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.signInForm.valid) {
       let fakeEmail = this.signInForm.get('email')!.value;
-      console.log("This is the email: " + fakeEmail);
     }
   }
 
-  constructor(private fb: FormBuilder) { }
+  goToRegisterPage() {
+    this.router.navigate(['/register']);
+  }
+
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
 
