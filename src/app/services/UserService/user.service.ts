@@ -21,7 +21,15 @@ export class UserService {
 
   registerUser(user: Users): Observable<Users> {
     return this.http.post<Users>(this.baseURL + "/register-user", user, this.userHeaders
-    ).pipe(map(res => res),catchError(this.handleError));
+    ).pipe(map(res => res), catchError(this.handleError));
+  }
+
+  checkLoginCredentials(user: Users): Observable<string> {
+    return this.http.post<string>(this.baseURL + "/login", user, this.userHeaders
+    ).pipe(map(res => {
+      const responseString = res;
+      return responseString;
+    }), catchError(this.handleError));
   }
 
 

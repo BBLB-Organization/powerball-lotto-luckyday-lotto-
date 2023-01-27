@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Users } from 'src/app/models/Users/users.model';
+import { UserService } from 'src/app/services/UserService/user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ import { Users } from 'src/app/models/Users/users.model';
 export class LoginComponent implements OnInit {
 
   existingUser?: Users;
+  accessToken: string = "";
   signInForm: FormGroup = this.fb.group({
     emailAddress: ['', Validators.required],
     password: ['', Validators.required]
@@ -36,7 +38,13 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.signInForm.valid) {
       let userLoggingIn = this.prepareSignIn();
-      console.log(userLoggingIn);
+      this.userService.checkLoginCredentials(userLoggingIn).subscribe({
+        next: (token: string) => {
+          this.accessToken = token;
+        }
+      }
+      );
+
     }
   }
 
@@ -44,7 +52,10 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/register']);
   }
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private userService: UserService) { }
 
   ngOnInit(): void {
 
