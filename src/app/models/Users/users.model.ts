@@ -1,17 +1,10 @@
 export class Users {
-    id: number | null;
-    email: string;
-    username: string;
-    accountCreatedOn: Date;
     constructor(
-        id: number | null,
-        email: string,
-        username: string,
-        accountCreatedOn: Date
-    ) {
-        this.id = id;
-        this.email = email;
-        this.username = username;
-        this.accountCreatedOn = accountCreatedOn;
-    }
+        public id: number | null,
+        public username: string,
+        public emailAddress: string,
+        public password: string,
+        public roles: string,
+        public accessToken: string
+    ) {}
 }
