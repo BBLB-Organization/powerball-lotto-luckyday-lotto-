@@ -42,9 +42,8 @@ export class RegisterComponent implements OnInit {
   registerUser(): void {
     if (this.registerForm.valid) {
       let registeredUser = this.prepareSave();
-      console.log(registeredUser);
       this.userService.registerUser(registeredUser).subscribe();
-      this.router.navigate(['/homepage']);
+      this.router.navigate(['/']);
     }
   }
 

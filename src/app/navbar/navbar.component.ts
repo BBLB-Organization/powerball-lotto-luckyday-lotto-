@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,11 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  isMenuCollapsed : boolean = true;
+  navbarWindow: any;
 
-  constructor() { }
+  isMenuCollapsed: boolean = true;
+  isAuthenticated: boolean = false;
+
+  logoutUser(): void {
+    localStorage.clear();
+    this.navbarWindow.location.reload();
+  }
+
+  constructor(private router: Router) {
+    this.navbarWindow = window;
+  }
 
   ngOnInit(): void {
+    if (localStorage.getItem("accessToken") != null) {
+      this.isAuthenticated = true;
+    }
+    else {
+      this.isAuthenticated = false;
+    }
   }
 
 }
