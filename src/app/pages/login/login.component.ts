@@ -10,25 +10,33 @@ import { Users } from 'src/app/models/Users/users.model';
 })
 export class LoginComponent implements OnInit {
 
-  existingUser: Users | undefined;
+  existingUser?: Users;
   signInForm: FormGroup = this.fb.group({
-    email: ['', Validators.required],
+    emailAddress: ['', Validators.required],
     password: ['', Validators.required]
   },
     { updateOn: 'submit' }
   );
 
-  get email(): string {
-    return this.signInForm.get('email')?.value;
+  get emailAddress(): string { return this.signInForm.get('emailAddress')?.value; }
+
+  get password(): string { return this.signInForm.get('password')?.value; }
+
+  prepareSignIn(): Users {
+    return new Users(
+      null,
+      "",
+      this.emailAddress,
+      this.password,
+      "",
+      ""
+    )
   }
 
-  get password(): string {
-    return this.signInForm.get('password')?.value;
-  }
-
-  onSubmit() {
+  login() {
     if (this.signInForm.valid) {
-      let fakeEmail = this.signInForm.get('email')!.value;
+      let userLoggingIn = this.prepareSignIn();
+      console.log(userLoggingIn);
     }
   }
 
