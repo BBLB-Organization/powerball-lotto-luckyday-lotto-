@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  usersURL: 'https://lotto-power-api-production.up.railway.app/user'
 };
