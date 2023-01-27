@@ -11,6 +11,8 @@ import { UserService } from 'src/app/services/UserService/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  loginPageWindow: any;
+
   existingUser?: Users;
   accessToken: string = "";
   signInForm: FormGroup = this.fb.group({
@@ -41,9 +43,13 @@ export class LoginComponent implements OnInit {
       this.userService.checkLoginCredentials(userLoggingIn).subscribe({
         next: (token: string) => {
           this.accessToken = token;
+          localStorage.setItem("accessToken", token);
+          this.loginPageWindow.location.reload();
         }
       }
       );
+
+      
 
     }
   }
@@ -55,10 +61,14 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private userService: UserService) { }
+    private userService: UserService) {
+      this.loginPageWindow = window;
+     }
 
   ngOnInit(): void {
-
+    if(localStorage.getItem("accessToken") != null){
+      this.router.navigate(['/homepage']);
+    }
   }
 
 }
