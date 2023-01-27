@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title text-center mb-4">Register</h3>
-                    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+                    <form (ngSubmit)="registerUser()" [formGroup]="registerForm">
                         <div>
                             <label for="firstName">First Name</label>
                             <input type="text" class="form-control" formControlName="firstName" id="firstName">
@@ -15,8 +15,8 @@
                             <input type="text" class="form-control" formControlName="lastName" id="lastName">
                         </div>
                         <div>
-                            <label for="userName">Username</label>
-                            <input type="text" class="form-control" formControlName="userName" id="userName">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" formControlName="username" id="userName">
                         </div>
                         <div>
                             <label for="email">Email address</label>
