@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       }
       );
 
-      
+
 
     }
   }
@@ -62,11 +62,11 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private userService: UserService) {
-      this.loginPageWindow = window;
-     }
+    this.loginPageWindow = window;
+  }
 
   ngOnInit(): void {
-    if(localStorage.getItem("accessToken") != null){
+    if (localStorage.getItem("accessToken") != null) {
       this.router.navigate(['/homepage']);
     }
   }

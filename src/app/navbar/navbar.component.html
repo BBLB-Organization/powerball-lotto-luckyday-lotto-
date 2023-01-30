@@ -1,6 +1,6 @@
 <nav *ngIf="isAuthenticated" class="navbar navbar-expand-lg navbar-light bg-light mb-3">
   <div class="container-fluid d-flex justify-content-between">
-    <img class="navbar-brand mx-auto" routerLink="/" src="assets/LOTTO.png" alt="lotto.png" style="cursor:pointer">
+    <img class="navbar-brand mx-auto" routerLink="/homepage" src="assets/LOTTO.png" alt="lotto.png" style="cursor:pointer">
     <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
     <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
       <ul class="navbar-nav">
