@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
   }
 
   goToRegisterPage() {
-    this.router.navigate(['/register']);
+    this.router.navigate(['register']);
   }
 
   constructor(
@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem("accessToken") != null) {
-      this.router.navigate(['/homepage']);
+      this.router.navigate(['homepage']);
     }
   }
 

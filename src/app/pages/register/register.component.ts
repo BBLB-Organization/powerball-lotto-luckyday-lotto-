@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       let registeredUser = this.prepareSave();
       this.userService.registerUser(registeredUser).subscribe();
-      this.router.navigate(['/']);
+      this.router.navigate(['login']);
     }
   }
 
