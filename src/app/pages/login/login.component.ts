@@ -49,25 +49,25 @@ export class LoginComponent implements OnInit {
       }
       );
 
-      
+
 
     }
   }
 
   goToRegisterPage() {
-    this.router.navigate(['/register']);
+    this.router.navigate(['register']);
   }
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private userService: UserService) {
-      this.loginPageWindow = window;
-     }
+    this.loginPageWindow = window;
+  }
 
   ngOnInit(): void {
-    if(localStorage.getItem("accessToken") != null){
-      this.router.navigate(['/homepage']);
+    if (localStorage.getItem("accessToken") != null) {
+      this.router.navigate(['homepage']);
     }
   }
 
