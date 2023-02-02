@@ -24,12 +24,9 @@ export class UserService {
     ).pipe(map(res => res), catchError(this.handleError));
   }
 
-  checkLoginCredentials(user: Users): Observable<string> {
-    return this.http.post<string>(this.baseURL + "/login", user, this.userHeaders
-    ).pipe(map(res => {
-      const responseString = res;
-      return responseString;
-    }), catchError(this.handleError));
+  checkLoginCredentials(user: Users): Observable<Users> {
+    return this.http.post<Users>(this.baseURL + "/login", user, this.userHeaders
+    ).pipe(map(res => res), catchError(this.handleError));
   }
 
 
