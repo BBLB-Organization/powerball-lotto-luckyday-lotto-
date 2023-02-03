@@ -1,6 +1,7 @@
 export class UserStats {
     constructor(
         public id: number | null,
+        public username: string,
         public joinedDate: Date,
         public lastSeenDate: Date,
         public totalMoneySpent: number,

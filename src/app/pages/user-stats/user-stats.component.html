@@ -15,26 +15,26 @@
                 <ul class="list-group">
                     <li class="list-group-item text-muted">Profile</li>
                     <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span><span
-                            class="panel-user">01/19/2023</span></li>
+                            class="panel-user">{{userStats.joinedDate}}</span></li>
                     <li class="list-group-item text-right"><span class="pull-left"><strong>Last
-                                seen</strong></span><span class="panel-user">01/31/2023</span></li>
+                                seen</strong></span><span class="panel-user">{{userStats.lastSeenDate}}</span></li>
                     <li class="list-group-item text-right"><span class="pull-left"><strong>Real
-                                name</strong></span><span class="panel-user">Jorge Morin</span></li>
+                                name</strong></span><span class="panel-user">{{userStats.username}}</span></li>
                 </ul>
             </div>
             <div class="individualPanel">
                 <ul class="list-group">
                     <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
                     <li class="list-group-item text-right"><span class="pull-left"><strong>Total Money
-                                Spent</strong></span><span class="panel-user">$125</span></li>
+                                Spent</strong></span><span class="panel-user">${{userStats.totalMoneySpent}}</span></li>
                     <li class="list-group-item text-right"><span class="pull-left"><strong>Matched Two -
-                                Winnings</strong></span><span class="panel-user">$125</span></li>
+                                Winnings</strong></span><span class="panel-user">${{userStats.totalMatchedTwoWinnings}}</span></li>
                     <li class="list-group-item text-right"><span class="pull-left"><strong>Matched Three -
-                                Winnings</strong></span><span class="panel-user">$125</span></li>
+                                Winnings</strong></span><span class="panel-user">${{userStats.totalMatchedThreeWinnings}}</span></li>
                     <li class="list-group-item text-right"><span class="pull-left"><strong>Matched Four -
-                                Winnings</strong></span><span class="panel-user">$125</span></li>
+                                Winnings</strong></span><span class="panel-user">${{userStats.totalMatchedFourWinnings}}</span></li>
                     <li class="list-group-item text-right"><span class="pull-left"><strong>Matched Five -
-                                Winnings</strong></span><span class="panel-user">$125</span></li>
+                                Winnings</strong></span><span class="panel-user">${{userStats.totalMatchedFiveWinnings}}</span></li>
                 </ul>
             </div>
 
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex game-card">
-                                    <h5>{{tempNumberList.at(i)}}</h5>
+                                    <h5>{{statsList.at(i)}}</h5>
                                 </div>
 
                             </div>
