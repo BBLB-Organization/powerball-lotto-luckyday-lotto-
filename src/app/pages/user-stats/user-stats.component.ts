@@ -12,6 +12,7 @@ export class UserStatsComponent implements OnInit {
   listOfCardTitles: string[] = ["TOTAL GAMES PLAYED", "TOTAL GAMES WON", "MATCHED 2 BALLS", "MATCHED 3 BALLS", "MATCHED 4 BALLS", "JACKPOT!"];
   statsList: number[] = [187, 35, 30, 5, 0, 0];
   userStats: UserStats = new UserStats(null,"", new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  totalWinningsEarned: number = 0;
 
 
   constructor(private userStatsService: UserStatsService) { }
@@ -43,10 +44,10 @@ export class UserStatsComponent implements OnInit {
         this.statsList = [];
         this.statsList = [this.userStats.totalGamesPlayed, this.userStats.totalGamesWon, this.userStats.totalGamesWonWhereMatchedTwo, this.userStats.totalGamesWonWhereMatchedThree, this.userStats.totalGamesWonWhereMatchedFour, this.userStats.totalGamesWonWhereMatchedFive];
 
+        this.totalWinningsEarned = this.userStats.totalMatchedTwoWinnings + this.userStats.totalMatchedThreeWinnings + this.userStats.totalMatchedFourWinnings + this.userStats.totalMatchedFiveWinnings;
+
       }
     });
-
-
 
   }
 

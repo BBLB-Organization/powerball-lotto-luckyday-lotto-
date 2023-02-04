@@ -30,6 +30,10 @@ export class UserStatsService {
       }), catchError(this.handleError));
   }
 
+  updateUserStats(updatedUserStats: UserStats): Observable<UserStats> {
+    return this.http.put<UserStats>(this.baseURL + "/update", updatedUserStats, this.userStatsHeaders);
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
