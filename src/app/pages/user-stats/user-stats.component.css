@@ -1,0 +1,15 @@
+.individualPanel{
+    padding-top: 2rem;
+}
+
+.panel-user{
+    float: right;
+}
+
+.game-card{
+    justify-content: center;
+}
+
+.card{
+    background-color: rgb(128,128,128,0.08) !important;
+}

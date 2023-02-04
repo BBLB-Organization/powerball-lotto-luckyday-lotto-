@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { OddsTableComponent } from './components/odds-table/odds-table.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { UserStatsComponent } from './pages/user-stats/user-stats.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RegisterComponent } from './pages/register/register.component';
     NavbarComponent,
     OddsTableComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserStatsComponent
   ],
   imports: [
     BrowserModule,

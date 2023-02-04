@@ -1,0 +1,69 @@
+<hr>
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+        <div class="col-sm-10">
+            <h1 style="font-style:italic">jmorin1</h1>
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <!--left col-->
+
+            <div class="individualPanel">
+                <ul class="list-group">
+                    <li class="list-group-item text-muted">Profile</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span><span
+                            class="panel-user">{{userStats.joinedDate}}</span></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Last
+                                seen</strong></span><span class="panel-user">{{userStats.lastSeenDate}}</span></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Real
+                                name</strong></span><span class="panel-user">{{userStats.username}}</span></li>
+                </ul>
+            </div>
+            <div class="individualPanel">
+                <ul class="list-group">
+                    <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Total Winnings</strong></span><span class="panel-user">${{totalWinningsEarned}}</span></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Total Money Spent</strong></span><span class="panel-user">${{userStats.totalMoneySpent}}</span></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Matched Two -
+                                Winnings</strong></span><span class="panel-user">${{userStats.totalMatchedTwoWinnings}}</span></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Matched Three -
+                                Winnings</strong></span><span class="panel-user">${{userStats.totalMatchedThreeWinnings}}</span></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Matched Four -
+                                Winnings</strong></span><span class="panel-user">${{userStats.totalMatchedFourWinnings}}</span></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Matched Five -
+                                Winnings</strong></span><span class="panel-user">${{userStats.totalMatchedFiveWinnings}}</span></li>
+                </ul>
+            </div>
+
+        </div>
+        <!--/col-3-->
+        <div class="col-sm-9">
+            <div class="container">
+                <div class="row mb-4">
+                    <div *ngFor="let title of listOfCardTitles; let i = index" class="col-lg-4 col-md-6 mb-4">
+                        <div class="card hover-lift hover-shadow-xl shadow-sm border-0">
+                            <!--card-body-->
+                            <div class="card-body p-4">
+                                <div class="d-flex mb-4 align-items-center">
+                                    <div class="flex-grow-1 d-flex game-card">
+                                        <h5>{{title}}</h5>
+                                    </div>
+                                </div>
+                                <div class="d-flex game-card">
+                                    <h5>{{statsList.at(i)}}</h5>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--/tab-pane-->
+                </div>
+                <!--/tab-content-->
+
+            </div>
+            <!--/col-9-->
+        </div>
+        <!--/row-->

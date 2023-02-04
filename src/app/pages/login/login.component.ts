@@ -41,9 +41,9 @@ export class LoginComponent implements OnInit {
     if (this.signInForm.valid) {
       let userLoggingIn = this.prepareSignIn();
       this.userService.checkLoginCredentials(userLoggingIn).subscribe({
-        next: (token: string) => {
-          this.accessToken = token;
-          localStorage.setItem("accessToken", token);
+        next: (user: Users) => {
+          localStorage.setItem("username", user.username);
+          localStorage.setItem("accessToken", user.accessToken);
           this.loginPageWindow.location.reload();
         }
       }

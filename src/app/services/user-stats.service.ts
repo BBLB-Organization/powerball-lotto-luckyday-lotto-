@@ -1,34 +1,38 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, throwError } from 'rxjs';
-import { Users } from 'src/app/models/Users/users.model';
+import { Observable, map, throwError, catchError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { UserStats } from '../models/user-stats.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserStatsService {
 
-  baseURL: string = environment.usersURL;
+  baseURL: string = environment.userStatsURL;
+  private userStats?: UserStats;
 
-  userHeaders = {
+  userStatsHeaders = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
 
+
+
   constructor(private http: HttpClient) { }
 
-  registerUser(user: Users): Observable<Users> {
-    return this.http.post<Users>(this.baseURL + "/register-user", user, this.userHeaders
-    ).pipe(map(res => res), catchError(this.handleError));
+  getUserStats(username: string | null): Observable<UserStats> {
+    return this.http.get<UserStats>(this.baseURL + "/" + username).pipe(
+      map(res => {
+        this.userStats = res;
+        return this.userStats;
+      }), catchError(this.handleError));
   }
 
-  checkLoginCredentials(user: Users): Observable<Users> {
-    return this.http.post<Users>(this.baseURL + "/login", user, this.userHeaders
-    ).pipe(map(res => res), catchError(this.handleError));
+  updateUserStats(updatedUserStats: UserStats): Observable<UserStats> {
+    return this.http.put<UserStats>(this.baseURL + "/update", updatedUserStats, this.userStatsHeaders);
   }
-
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
