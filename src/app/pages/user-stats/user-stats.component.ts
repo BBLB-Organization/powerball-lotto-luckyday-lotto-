@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { UserStats } from 'src/app/models/user-stats.model';
-import { UserStatsService } from 'src/app/services/user-stats.service';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { UserStats } from 'src/app/models/UserStats/user-stats.model';
+import { UserStatsService } from 'src/app/services/UserStatsService/user-stats.service';
 
 @Component({
   selector: 'app-user-stats',
@@ -11,11 +11,12 @@ export class UserStatsComponent implements OnInit {
 
   listOfCardTitles: string[] = ["TOTAL GAMES PLAYED", "TOTAL GAMES WON", "MATCHED 2 BALLS", "MATCHED 3 BALLS", "MATCHED 4 BALLS", "JACKPOT!"];
   statsList: number[] = [187, 35, 30, 5, 0, 0];
-  userStats: UserStats = new UserStats(null,"", new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  userStats: UserStats = new UserStats(null, "", new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   totalWinningsEarned: number = 0;
 
 
   constructor(private userStatsService: UserStatsService) { }
+
 
   onReload() {
     let username: string | null = "";
@@ -54,6 +55,27 @@ export class UserStatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.onReload();
+  }
+
+
+  prepareSave() {
+    return new UserStats(
+      this.userStats.id,
+      this.userStats.username,
+      this.userStats.joinedDate,
+      this.userStats.lastSeenDate,
+      this.userStats.totalMoneySpent,
+      this.userStats.totalMatchedTwoWinnings,
+      this.userStats.totalMatchedThreeWinnings,
+      this.userStats.totalMatchedFourWinnings,
+      this.userStats.totalMatchedFiveWinnings,
+      this.userStats.totalGamesPlayed,
+      this.userStats.totalGamesWon,
+      this.userStats.totalGamesWonWhereMatchedTwo,
+      this.userStats.totalGamesWonWhereMatchedThree,
+      this.userStats.totalGamesWonWhereMatchedFour,
+      this.userStats.totalGamesWonWhereMatchedFive
+    )
   }
 
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserStats } from 'src/app/models/user-stats.model';
-import { UserStatsService } from 'src/app/services/user-stats.service';
+import { UserStats } from 'src/app/models/UserStats/user-stats.model';
+import { UserStatsService } from 'src/app/services/UserStatsService/user-stats.service';
 
 @Component({
   selector: 'app-homepage',
@@ -79,6 +79,7 @@ export class HomepageComponent implements OnInit {
       }
 
       let updatedUserStats = this.prepareSave();
+      console.log(updatedUserStats);
       this.userStatsService.updateUserStats(updatedUserStats).subscribe();
     }
   }
