@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserStatsComponent } from './pages/user-stats/user-stats.component';
 import { AuthGuardService } from './services/Auth/auth-guard.service';
+import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'user-stats',
     component: UserStatsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'leaderboard',
+    component: LeaderboardComponent,
     canActivate: [AuthGuardService]
   },
   {

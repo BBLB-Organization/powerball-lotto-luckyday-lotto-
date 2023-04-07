@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   usersURL: 'http://localhost:8080/user',
-  userStatsURL: 'http://localhost:8080/user-stats'
+  userStatsURL: 'http://localhost:8080/user-stats',
+  leaderboardURL: 'http://localhost:8080/user-leaderboard'
 };
 
 /*

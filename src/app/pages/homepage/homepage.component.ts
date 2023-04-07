@@ -79,7 +79,7 @@ export class HomepageComponent implements OnInit {
       }
 
       let updatedUserStats = this.prepareSave();
-      console.log(updatedUserStats);
+      //console.log(updatedUserStats);
       this.userStatsService.updateUserStats(updatedUserStats).subscribe();
     }
   }

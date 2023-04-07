@@ -12,6 +12,7 @@ import { OddsTableComponent } from './components/odds-table/odds-table.component
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserStatsComponent } from './pages/user-stats/user-stats.component';
+import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserStatsComponent } from './pages/user-stats/user-stats.component';
     OddsTableComponent,
     LoginComponent,
     RegisterComponent,
-    UserStatsComponent
+    UserStatsComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
